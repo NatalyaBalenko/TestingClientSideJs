@@ -23,3 +23,42 @@ test("add 2 numbers", function () {
     var result = app.sum(2, 4);
     strictEqual(result, 6);
 });
+
+module('Async Tests');
+
+test("asysn test", function() {
+    stop();
+    setTimeout(function() {
+        ok(true);
+        start();
+    }, 100);
+});
+
+test("asysn test 2", function () {
+    // stop 2 times indicating that it has to stop for 2 asysn timeouts
+    stop(2);
+    setTimeout(function() {
+        ok(true);
+        start();
+    }, 200);
+    
+    setTimeout(function () {
+        ok(true);
+        start();
+    }, 100);
+});
+
+asyncTest("better asysn test", function () {
+    // No need for stop, as it is an asysn Test
+    // But still doesn't work if there are 2 timeouts
+    setTimeout(function () {
+        ok(true);
+        start();
+    }, 100);
+});
+
+module("DOM Tests");
+
+test("jQuery loaded", function() {
+    ok($);
+})

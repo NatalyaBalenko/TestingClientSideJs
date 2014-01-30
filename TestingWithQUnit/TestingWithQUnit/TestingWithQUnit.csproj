@@ -67,6 +67,7 @@
   <ItemGroup>
     <Content Include="App.js" />
     <Content Include="Content\QUnit.css" />
+    <Content Include="Scripts\jQuery.js" />
     <Content Include="Scripts\QUnit.js" />
     <Content Include="Scripts\tests.js" />
     <Content Include="testPage.html" />
