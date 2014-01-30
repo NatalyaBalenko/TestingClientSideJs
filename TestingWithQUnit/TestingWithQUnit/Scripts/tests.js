@@ -5,6 +5,14 @@ test("hello test", function () {
     ok(1 == "1");
 });
 
+test("expect", 2, function () {
+
+    // or you can use the below statement to expect 2 asserts
+    //expect(2);
+    ok(1 == "1");
+    ok(1 === 1);
+});
+
 
 module('module 2', {
     setup: function () {
