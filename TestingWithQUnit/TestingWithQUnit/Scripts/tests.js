@@ -7,10 +7,10 @@ test("hello test", function () {
 
 
 module('module 2', {
-    setup: function() {
+    setup: function () {
         // run setup before tests are done
     },
-    teardown : function() {
+    teardown: function () {
         // run setup before all tests are done
     }
 });
@@ -26,9 +26,9 @@ test("add 2 numbers", function () {
 
 module('Async Tests');
 
-test("asysn test", function() {
+test("asysn test", function () {
     stop();
-    setTimeout(function() {
+    setTimeout(function () {
         ok(true);
         start();
     }, 100);
@@ -37,11 +37,11 @@ test("asysn test", function() {
 test("asysn test 2", function () {
     // stop 2 times indicating that it has to stop for 2 asysn timeouts
     stop(2);
-    setTimeout(function() {
+    setTimeout(function () {
         ok(true);
         start();
     }, 200);
-    
+
     setTimeout(function () {
         ok(true);
         start();
@@ -59,6 +59,21 @@ asyncTest("better asysn test", function () {
 
 module("DOM Tests");
 
-test("jQuery loaded", function() {
+test("jQuery loaded", function () {
     ok($);
-})
+});
+
+asyncTest("app.fade", function () {
+    app.fade(500);
+    setTimeout(function () {
+        ok(!$('#div1').is(':visible'));
+        start();
+    }, 600);
+});
+
+asyncTest("app.fade2 - better way", function () {
+    app.fade2(500, function () {
+        ok(!$('#div1').is(':visible'));
+        start();
+    }, 600);
+});
