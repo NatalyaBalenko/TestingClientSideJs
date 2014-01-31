@@ -1,15 +1,13 @@
 beforeEach(function () {
   jasmine.addMatchers({
-    toBePlaying: function () {
+      toBeBetween: function () {
       return {
-        compare: function (actual, expected) {
-          var player = actual;
-
+        compare: function (actual, value1, value2) {
           return {
-            pass: player.currentlyPlayingSong === expected && player.isPlaying
+            pass: actual >= value1 && actual <= value2
           }
         }
       };
-    }
+    },
   });
 });

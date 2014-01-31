@@ -75,10 +75,12 @@
     <Content Include="Jasmine\SpecRunner.html" />
     <Content Include="Jasmine\spec\MySpecs.js" />
     <Content Include="Jasmine\spec\PlayerSpec.js" />
+    <Content Include="Jasmine\spec\SpecHelper - Copy.js" />
     <Content Include="Jasmine\spec\SpecHelper.js" />
     <Content Include="Jasmine\src\App.js" />
     <Content Include="Jasmine\src\Player.js" />
     <Content Include="Jasmine\src\Song.js" />
+    <Content Include="Scripts\jQuery.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

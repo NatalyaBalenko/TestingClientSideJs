@@ -3,6 +3,11 @@
         return a + b;
     };
 
+    var divide = function (a, b) {
+        return a / b;
+    };
+
+
     var fade = function (duration) {
         $('#div1').fadeOut(duration);
     };
@@ -13,6 +18,7 @@
 
     return {
         sum: sum,
+        divide: divide,
         fade: fade,
         fade2: fade2
     };
