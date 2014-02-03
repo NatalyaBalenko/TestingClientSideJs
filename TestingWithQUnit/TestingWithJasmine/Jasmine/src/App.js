@@ -9,6 +9,14 @@
         return a / b;
     };
 
+    var doSomething = function () {
+        //
+    }
+
+    var getValue = function () {
+        return 5;
+    }
+
 
     var fade = function (element, duration) {
         $(element).fadeOut(duration);
@@ -22,6 +30,8 @@
         sum: sum,
         divide: divide,
         fade: fade,
-        fade2: fade2
+        fade2: fade2,
+        doSomething: doSomething,
+        getValue: getValue
     };
 })($);
