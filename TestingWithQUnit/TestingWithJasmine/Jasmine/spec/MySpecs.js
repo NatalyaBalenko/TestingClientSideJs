@@ -1,8 +1,25 @@
 ﻿/// <reference path="../src/App.js" />
 
 describe("App", function () {
-    describe("UI", function () {
-       
+    describe("DOM", function () {
+
+        //Create element before each test is run
+        beforeEach(function () {
+            $('body').append("<div id='div1'></div>");
+        });
+
+        //Delete element after each test is run
+        afterEach(function () {
+            $('#div1').remove();
+        });
+
+        var divId = '#div1';
+
+        it('should populate element passed with the result', function () {
+            var result = app.sum(3, 4, divId);
+            expect(result).toBe(7);
+            expect($(divId).html()).toBe('7');
+        });
     });
 
     describe("Math", function () {
@@ -21,6 +38,7 @@ describe("App", function () {
             expect(result).toBe(2);
         });
 
+        // Put an x in front of the describe or it to skip the contained tests, example xit, xdescribe.
         it("should be able to divide any 2 rational numbers", function () {
             var result = app.divide(1, 3);
             expect(result).toBeGreaterThan(0.33);

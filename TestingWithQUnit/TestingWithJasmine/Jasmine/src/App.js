@@ -1,5 +1,7 @@
 ﻿var app = (function ($) {
-    var sum = function (a, b) {
+    var sum = function (a, b, element) {
+        var result = a + b;
+        $(element).html(result);
         return a + b;
     };
 
