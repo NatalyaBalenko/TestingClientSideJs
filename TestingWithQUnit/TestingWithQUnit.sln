@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingWithQUnit", "Testing
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingWithJasmine", "TestingWithJasmine\TestingWithJasmine.csproj", "{901C702B-D256-4D9C-88A0-ABB7DB148579}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingWithMocha", "TestingWithMocha\TestingWithMocha.csproj", "{1A12C851-69CE-4E33-A7C8-E390B2BD484F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{901C702B-D256-4D9C-88A0-ABB7DB148579}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{901C702B-D256-4D9C-88A0-ABB7DB148579}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{901C702B-D256-4D9C-88A0-ABB7DB148579}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A12C851-69CE-4E33-A7C8-E390B2BD484F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A12C851-69CE-4E33-A7C8-E390B2BD484F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A12C851-69CE-4E33-A7C8-E390B2BD484F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A12C851-69CE-4E33-A7C8-E390B2BD484F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

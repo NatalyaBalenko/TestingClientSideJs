@@ -10,8 +10,8 @@
     };
 
 
-    var fade = function (duration) {
-        $('#div1').fadeOut(duration);
+    var fade = function (element, duration) {
+        $(element).fadeOut(duration);
     };
 
     var fade2 = function (duration, callback) {
