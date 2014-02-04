@@ -1,4 +1,5 @@
-﻿/// <reference path="../src/App.js" />
+﻿/// <reference path="../src/App2.js" />
+/// <reference path="../src/App.js" />
 
 describe("App", function () {
     describe("DOM", function () {
@@ -73,75 +74,89 @@ describe("App", function () {
 
     });
 
-    describe("spies", function () {
-
-        var callMyCallback = function (cb) {
-            cb();
-        }
-
-        it("should spy on my callback", function () {
-            var spy = jasmine.createSpy('mySpy');
-            callMyCallback(spy);
-            expect(spy).toHaveBeenCalled();
-        });
-
-    })
-
-    describe("spyOn app.doSomething", function () {
-        var mySpy;
-        beforeEach(function () {
-            mySpy = spyOn(app, 'doSomething');
-            app.doSomething();
-            app.doSomething();
-        });
+    describe("Jasmine Spies", function () {
 
 
-        it("should spy on app.doSomething", function () {
-            expect(mySpy).toHaveBeenCalled();
-        });
+        describe("spies", function () {
 
-        it("should have called app.doSomething twice", function () {
-            expect(app.doSomething.calls.count()).toEqual(2);
-        });
-
-    })
-
-    describe("spyOn", function () {
-        var mySpy;
-
-        it("should spy on app.getValue", function () {
-            mySpy = spyOn(app, 'getValue').and.returnValue(10);
-            expect(app.getValue()).toEqual(10);
-        });
-
-        it("should call fake", function () {
-            mySpy = spyOn(app, 'getValue').and.callFake(function () {
-                return 10;
-            });
-            expect(app.getValue()).toEqual(10);
-        });
-
-        it("should callThrough", function () {
-            mySpy = spyOn(app, 'getValue').and.callThrough();
-            app.getValue();
-            app.getValue();
-
-            expect(app.getValue()).toEqual(5);
-            expect(app.getValue.calls.count()).toEqual(3);
-        });
-
-        it("should throwError", function () {
-            mySpy = spyOn(app, 'getValue').and.throwError(new Error("Error"));
-            var value;
-            try {
-                value = app.getValue();
-            } catch (ex) {
-                value = 100;
+            var callMyCallback = function (cb) {
+                cb();
             }
-            expect(value).toEqual(100);
-        });
 
+            it("should spy on my callback", function () {
+                var spy = jasmine.createSpy('mySpy');
+                callMyCallback(spy);
+                expect(spy).toHaveBeenCalled();
+            });
+
+        })
+
+        describe("spyOn app.doSomething", function () {
+            var mySpy;
+            beforeEach(function () {
+                mySpy = spyOn(app, 'doSomething');
+                app.doSomething();
+                app.doSomething();
+            });
+
+
+            it("should spy on app.doSomething", function () {
+                expect(mySpy).toHaveBeenCalled();
+            });
+
+            it("should have called app.doSomething twice", function () {
+                expect(app.doSomething.calls.count()).toEqual(2);
+            });
+
+        })
+
+        describe("spyOn", function () {
+            var mySpy;
+
+            it("should spy on app.getValue", function () {
+                mySpy = spyOn(app, 'getValue').and.returnValue(10);
+                expect(app.getValue()).toEqual(10);
+            });
+
+            it("should call fake", function () {
+                mySpy = spyOn(app, 'getValue').and.callFake(function () {
+                    return 10;
+                });
+                expect(app.getValue()).toEqual(10);
+            });
+
+            it("should callThrough", function () {
+                mySpy = spyOn(app, 'getValue').and.callThrough();
+                app.getValue();
+                app.getValue();
+
+                expect(app.getValue()).toEqual(5);
+                expect(app.getValue.calls.count()).toEqual(3);
+            });
+
+            it("should throwError", function () {
+                mySpy = spyOn(app, 'getValue').and.throwError(new Error("Error"));
+                var value;
+                try {
+                    value = app.getValue();
+                } catch (ex) {
+                    value = 100;
+                }
+                expect(value).toEqual(100);
+            });
+
+        })
+
+    });
+
+    describe("Sinon", function () {
+        describe("Spies", function () {
+            it("should spy on a callback", function () {
+                var spy = sinon.spy();
+                mySUT.callCallBack(spy);
+
+                expect(spy.called).toBe(true);
+            })
+        })
     })
-
-
 });

@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\sinon-1.8.1.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -78,6 +79,7 @@
     <Content Include="Jasmine\spec\SpecHelper - Copy.js" />
     <Content Include="Jasmine\spec\SpecHelper.js" />
     <Content Include="Jasmine\src\App.js" />
+    <Content Include="Jasmine\src\App2.js" />
     <Content Include="Jasmine\src\Player.js" />
     <Content Include="Jasmine\src\Song.js" />
     <Content Include="Scripts\jQuery.js" />
