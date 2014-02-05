@@ -178,5 +178,20 @@ describe("App", function () {
             });
 
         })
+
+        describe("Assertions", function () {
+
+            xit("should use a built-in assert", function () {
+                var spy = sinon.spy();
+                //mySUT.callCallBack(spy);
+                expect(spy.called).toBe(true);
+            });
+
+            xit("should use a sinon assert", function () {
+                var spy = sinon.spy();
+                //mySUT.callCallBack(spy);
+                sinon.assert.called(spy);
+            })
+        });
     })
 });
