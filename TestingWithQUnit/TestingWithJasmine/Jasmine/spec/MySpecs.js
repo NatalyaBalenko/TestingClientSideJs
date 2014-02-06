@@ -183,7 +183,7 @@ describe("App", function () {
                 expect(spy.called).toBe(true);
                 expect(returnValue).toBe(10);
 
-                
+
 
             });
 
@@ -241,5 +241,69 @@ describe("App", function () {
                 })
             });
         });
+
+
+        describe("Facking Timers", function () {
+            var myClass, spy, clock;
+            beforeEach(function () {
+                myClass = {
+                    doTimeout: function (cb) {
+                        setTimeout(cb, 1000);
+                    },
+                    hide: function () {
+                        $('#hideMe').fadeOut();
+                    }
+                };
+
+                $('#hideMe').show();
+                spy = sinon.spy(cb);
+            });
+
+            afterEach(function () {
+                if (clock)
+                    clock.restore();
+            })
+
+            var cb = function () {
+                console.log('cb called');
+            };
+
+            it("should be able to handle timeouts", function () {
+                clock = sinon.useFakeTimers();
+
+                myClass.doTimeout(spy);
+                clock.tick(1010);
+                expect(spy.called).toBe(true);
+            })
+
+            it("should be able to handle animations", function () {
+                clock = sinon.useFakeTimers();
+
+                myClass.hide();
+                clock.tick(1010);
+                expect($('#hideMe').is(':visible')).toBe(false);
+            })
+
+            it("should be able to fake dates", function () {
+                var initialDate = 1357423755011;
+
+                // set the clock to this date
+                clock = sinon.useFakeTimers(initialDate);
+
+                var date1 = Date.now();
+                console.log(date1);
+                clock.tick(1010);
+
+                var date2 = Date.now();
+                console.log(date2);
+
+                clock.restore();
+
+                var date3 = Date.now();
+                console.log(date3);
+
+            })
+        });
+
     })
 });
