@@ -65,10 +65,18 @@ describe("App", function () {
 
         // Put an x in front of the describe or it to skip the contained tests, example xit, xdescribe.
         it("should be able to divide any 2 rational numbers", function () {
+
+            var spy = sinon.spy(app, "divide");
+
             var result = app.divide(1, 3);
             expect(result).toBeGreaterThan(0.33);
             expect(result).toBeLessThan(0.34);
             expect(result).toBeBetween(0.33, 0.34);
+
+            expect(sinon.assert.calledWithMatch(spy, sinon.match.number));
+            expect(sinon.assert.calledWithMatch(spy, sinon.match(function (value1, value2) {
+                return value1 >= 1 && value1 < 10;
+            }, "between 1 and 2")));
         });
 
 
@@ -174,6 +182,8 @@ describe("App", function () {
 
                 expect(spy.called).toBe(true);
                 expect(returnValue).toBe(10);
+
+                
 
             });
 
