@@ -21,4 +21,10 @@
         //});
 
     });
+
+    describe('Test to print out jasmine version', function () {
+        it('prints jasmine version', function () {
+            dump('jasmine-version:' + jasmine.getEnv().versionString());
+        });
+    });
 });
