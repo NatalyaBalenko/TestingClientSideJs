@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{901C702B-D256-4D9C-88A0-ABB7DB148579}</ProjectGuid>
+    <ProjectGuid>{EF81257F-383B-482C-9288-FEADDDB1C0D6}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestingWithJasmine</RootNamespace>
-    <AssemblyName>TestingWithJasmine</AssemblyName>
+    <RootNamespace>TestingWithKarma</RootNamespace>
+    <AssemblyName>TestingWithKarma</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -57,8 +57,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="karma.conf.js" />
-    <Content Include="Scripts\sinon-1.8.1.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -67,28 +65,23 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Jasmine\lib\jasmine-2.0.0\boot.js" />
-    <Content Include="Jasmine\lib\jasmine-2.0.0\console.js" />
-    <Content Include="Jasmine\lib\jasmine-2.0.0\jasmine-html.js" />
-    <Content Include="Jasmine\lib\jasmine-2.0.0\jasmine.css" />
-    <Content Include="Jasmine\lib\jasmine-2.0.0\jasmine.js" />
-    <Content Include="Jasmine\lib\jasmine-2.0.0\jasmine_favicon.png" />
-    <Content Include="Jasmine\MyTests.html" />
-    <Content Include="Jasmine\SpecRunner.html" />
-    <Content Include="Jasmine\spec\MySpecs.js" />
-    <Content Include="Jasmine\spec\PlayerSpec.js" />
-    <Content Include="Jasmine\spec\SpecHelper - Copy.js" />
-    <Content Include="Jasmine\spec\SpecHelper.js" />
-    <Content Include="Jasmine\src\App.js" />
-    <Content Include="Jasmine\src\App2.js" />
-    <Content Include="Jasmine\src\Player.js" />
-    <Content Include="Jasmine\src\Song.js" />
-    <Content Include="Scripts\jQuery.js" />
+    <Content Include="MyTests.html" />
+    <Content Include="Scripts\App\myApp.js" />
+    <Content Include="Scripts\lib\jasmine-2.0.0\boot.js" />
+    <Content Include="Scripts\lib\jasmine-2.0.0\console.js" />
+    <Content Include="Scripts\lib\jasmine-2.0.0\jasmine-html.js" />
+    <Content Include="Scripts\lib\jasmine-2.0.0\jasmine.css" />
+    <Content Include="Scripts\lib\jasmine-2.0.0\jasmine.js" />
+    <Content Include="Scripts\lib\jasmine-2.0.0\jasmine_favicon.png" />
+    <Content Include="Scripts\lib\jQuery.js" />
+    <Content Include="Scripts\lib\sinon-1.8.1.js" />
+    <Content Include="Scripts\Tests\MySpecs.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -102,9 +95,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>63621</DevelopmentServerPort>
+          <DevelopmentServerPort>58830</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:63621/</IISUrl>
+          <IISUrl>http://localhost:58830/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
