@@ -28,6 +28,7 @@ module.exports = function(config) {
     exclude: [
       'Scripts/*.js.map',
       'Scripts/angular-scenario.js',
+      'Tests/**/scenarios.js'
     ],
 
 

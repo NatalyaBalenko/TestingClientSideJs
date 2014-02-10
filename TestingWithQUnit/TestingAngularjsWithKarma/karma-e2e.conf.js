@@ -8,13 +8,13 @@ module.exports = function (config) {
             'Tests/e2e/*.js'
         ],
 
-        autoWatch: false,
+        autoWatch: true,
 
-        browsers: ['Chrome', 'Firefox'],
+        browsers: ['Chrome'],
 
         frameworks: ['ng-scenario'],
 
-        singleRun: true,
+        singleRun: false,
 
         // Replace the port with whatever port the app is running on
         proxies: {

@@ -26,5 +26,16 @@ describe('PhoneCat App', function () {
             input('query').enter('nexus');
             expect(element('#status').text()).toMatch(/Current filter: nexus\s*$/);
         });
+
+        it('should be possible to sort the list via dropdown select box', function () {
+            input('query').enter('tablet');
+            expect(repeater('.phones li', 'Phone List').column('phone.name')).
+                  toEqual(["Motorola XOOM\u2122 with Wi-Fi",
+                           "MOTOROLA XOOM\u2122"]);
+
+            select('orderProp').option('Alphabetical');
+            expect(repeater('.phones li', 'Phone List').column('phone.name')).
+                  toEqual(["MOTOROLA XOOM\u2122", "Motorola XOOM\u2122 with Wi-Fi"]);
+        });
     });
 });
