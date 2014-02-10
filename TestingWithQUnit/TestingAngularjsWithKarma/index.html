@@ -27,8 +27,9 @@
                 <div id="status">Current filter: {{query}}</div>
                 <p>Total number of phones: {{filtered.length}}</p>
                 <ul class="phones">
-                    <li data-ng-repeat="phone in filtered= (phones | filter:query) | orderBy:orderProp">
-                        <span>{{phone.name}}</span>
+                    <li data-ng-repeat="phone in filtered= (phones | filter:query) | orderBy:orderProp" class="thumbnail">
+                        <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{'App/' + phone.imageUrl}}"></a>
+                        <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
                         <p>
                             {{phone.snippet}}
                         </p>

@@ -17,18 +17,34 @@ xdescribe("CoursesController", function () {
     });
 });
 
+
+
 describe("PhoneCat Controllers", function () {
-    var scope, $controllerConstructor;
+    var scope, $controllerConstructor, $httpBackend;
 
     beforeEach(module('phonecatApp'));
-    beforeEach(inject(function ($controller, $rootScope) {
+    // The injector ignores leading and trailing underscores here (i.e. _$httpBackend_).
+    // This allows us to inject a service but then attach it to a variable
+    // with the same name as the service.
+    beforeEach(inject(function ($controller, $rootScope, _$httpBackend_) {
         scope = $rootScope.$new();
         $controllerConstructor = $controller;
+        $httpBackend = _$httpBackend_;
+        $httpBackend.expectGET('/App/phones/phones.json').
+          respond([{ name: 'Nexus S' }, { name: 'Motorola DROID' }]);
     }));
+
     describe("PhoneListCtrl", function () {
         it('should create "phones" model with 3 phones', function () {
             var ctrl = $controllerConstructor('PhoneListCtrl', { $scope: scope });
-            expect(scope.phones.length).toBe(3);
+            //dump(scope.phones);
+            //expect(scope.phones.length).toBe(20);
+
+            expect(scope.phones).toBeUndefined();
+            $httpBackend.flush();
+
+            expect(scope.phones).toEqual([{ name: 'Nexus S' },
+                                         { name: 'Motorola DROID' }]);
         });
 
         it('should set the default value of orderProp model', function () {
