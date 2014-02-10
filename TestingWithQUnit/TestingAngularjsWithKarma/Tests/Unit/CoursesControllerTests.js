@@ -20,23 +20,25 @@ xdescribe("CoursesController", function () {
 
 
 describe("PhoneCat Controllers", function () {
-    var scope, $controllerConstructor, $httpBackend;
+    var scope, ctrl, $httpBackend;
 
     beforeEach(module('phonecatApp'));
     // The injector ignores leading and trailing underscores here (i.e. _$httpBackend_).
     // This allows us to inject a service but then attach it to a variable
     // with the same name as the service.
-    beforeEach(inject(function ($controller, $rootScope, _$httpBackend_) {
-        scope = $rootScope.$new();
-        $controllerConstructor = $controller;
-        $httpBackend = _$httpBackend_;
-        $httpBackend.expectGET('/App/phones/phones.json').
-          respond([{ name: 'Nexus S' }, { name: 'Motorola DROID' }]);
-    }));
 
     describe("PhoneListCtrl", function () {
+
+        beforeEach(inject(function ($controller, $rootScope, _$httpBackend_) {
+            scope = $rootScope.$new();
+            ctrl = $controller('PhoneListCtrl', { $scope: scope });
+            $httpBackend = _$httpBackend_;
+            $httpBackend.expectGET('/App/phones/phones.json').
+              respond([{ name: 'Nexus S' }, { name: 'Motorola DROID' }]);
+        }));
+
         it('should create "phones" model with 3 phones', function () {
-            var ctrl = $controllerConstructor('PhoneListCtrl', { $scope: scope });
+            
             //dump(scope.phones);
             //expect(scope.phones.length).toBe(20);
 
@@ -48,8 +50,40 @@ describe("PhoneCat Controllers", function () {
         });
 
         it('should set the default value of orderProp model', function () {
-            var ctrl = $controllerConstructor('PhoneListCtrl', { $scope: scope });
             expect(scope.orderProp).toBe('age');
+        });
+    });
+
+    describe("PhoneDetailCtrl", function () {
+        beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, $routeParams) {
+            scope = $rootScope.$new();
+            $routeParams.phoneId = "xyz";
+            ctrl = $controller('PhoneDetailCtrl', { $scope: scope });
+            
+            $httpBackend = _$httpBackend_;
+            $httpBackend.expectGET('App/phones/xyz.json').
+              respond({ name: 'phone xyz' });
+        }));
+
+        it('should fetch phone detail', function () {
+            
+            expect(scope.phone).toBeUndefined();
+            $httpBackend.flush();
+
+            expect(scope.phone).toEqual({ name: 'phone xyz' });
+        });
+    });
+
+    describe('filter', function () {
+
+        beforeEach(module('phonecatApp'));
+
+        describe('checkmark', function () {
+            it('should convert boolean values to unicode checkmark or cross',
+                inject(function (checkmarkFilter) {
+                    expect(checkmarkFilter(true)).toBe('\u2713');
+                    expect(checkmarkFilter(false)).toBe('\u2718');
+                }));
         });
     });
 });

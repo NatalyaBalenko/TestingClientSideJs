@@ -20,7 +20,7 @@ describe('PhoneCat App', function () {
             expect(repeater('.phones li').count()).toBe(8);
         });
 
-        it('should display the current filter value within an element with id "status"', function () {
+        xit('should display the current filter value within an element with id "status"', function () {
             expect(element('#status').text()).toMatch(/Current filter: \s*$/);
 
             input('query').enter('nexus');
@@ -42,7 +42,30 @@ describe('PhoneCat App', function () {
             input('query').enter('nexus');
             element('.phones li a').click();
             expect(browser().location().url()).toBe('/phones/nexus-s');
-            pause();
         });
+
+        it('should redirect index.html to index.html#/phones', function () {
+            browser().navigateTo('index.html');
+            expect(browser().location().url()).toBe('/phones');
+        });
+    });
+
+    describe('Phone detail view', function () {
+        beforeEach(function () {
+            browser().navigateTo('index.html#/phones/nexus-s');
+        });
+
+
+        xit('should display placeholder page with phoneId', function () {
+            expect(binding('phoneId')).toBe('nexus-s');
+        });
+
+        it('should display 4 images for nexus-s', function () {
+            // Display 4 thumbnail images
+            expect(element('.phone-thumbs li img').count()).toBe(4);
+            // Display 5 images in all
+            expect(element('img').count()).toBe(5);
+        });
+
     });
 });

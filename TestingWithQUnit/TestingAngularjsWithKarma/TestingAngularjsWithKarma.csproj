@@ -83,6 +83,7 @@
     <Content Include="App\css\bootstrap-responsive.min.css" />
     <Content Include="App\css\bootstrap.css" />
     <Content Include="App\css\bootstrap.min.css" />
+    <Content Include="App\filters\checkmark.js" />
     <Content Include="App\img\glyphicons-halflings-white.png" />
     <Content Include="App\img\glyphicons-halflings.png" />
     <Content Include="App\img\phones\dell-streak-7.0.jpg" />
@@ -164,6 +165,8 @@
     <Content Include="App\img\phones\t-mobile-mytouch-4g.3.jpg" />
     <Content Include="App\img\phones\t-mobile-mytouch-4g.4.jpg" />
     <Content Include="App\img\phones\t-mobile-mytouch-4g.5.jpg" />
+    <Content Include="App\partials\phone-detail.html" />
+    <Content Include="App\partials\phone-list.html" />
     <Content Include="index.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />

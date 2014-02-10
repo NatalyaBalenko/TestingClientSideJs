@@ -1,44 +1,18 @@
 ﻿<!doctype html>
-<html lang="en" ng-app="phonecatApp" ng-controller="PhoneListCtrl">
+<html lang="en" ng-app="phonecatApp">
 <head>
     <meta charset="utf-8">
-    <title ng-bind-template="Google Phone Gallery {{query && ':' + query}}">Google Phone Gallery</title>
+    <title>Google Phone Gallery</title>
     <link href="App/css/app.css" rel="stylesheet" />
     <link rel="stylesheet" href="App/css/bootstrap.css">
     <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
     <script src="App/app.js"></script>
     <script src="App/Controllers/controllers.js"></script>
+    <script src="App/filters/checkmark.js"></script>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span2">
-                Search: <input ng-model="query" />
-                Sort by:
-                <select ng-model="orderProp">
-                    <option value="name">Alphabetical</option>
-                    <option value="age">Newest</option>
-                </select>
-            </div>
-        </div>
-        <hr />
-        <div class="row-fluid">
-            <div class="span10">
-                <div id="status">Current filter: {{query}}</div>
-                <p>Total number of phones: {{filtered.length}}</p>
-                <ul class="phones">
-                    <li data-ng-repeat="phone in filtered= (phones | filter:query) | orderBy:orderProp" class="thumbnail">
-                        <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{'App/' + phone.imageUrl}}"></a>
-                        <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
-                        <p>
-                            {{phone.snippet}}
-                        </p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
+    <div ng-view=""></div>
 
 </body>
 </html>
