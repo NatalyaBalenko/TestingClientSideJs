@@ -11,10 +11,6 @@
     {
         'name': 'MOTOROLA XOOM™',
         'snippet': 'The Next, Next Generation tablet.'
-    },
-    {
-        'name': 'Samsung Galaxy S4™',
-        'snippet': 'Samsung\'s Flagship phone.'
     }
     ];
 }]);

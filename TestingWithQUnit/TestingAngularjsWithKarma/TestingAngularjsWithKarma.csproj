@@ -435,9 +435,12 @@
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />
     <Content Include="Scripts\sinon-1.8.1.js" />
+    <Content Include="Tests\e2e\runner.html" />
+    <Content Include="Tests\e2e\scenarios.js" />
     <Content Include="Tests\Unit\CoursesControllerTests.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-2.1.0.min.map" />
+    <Content Include="Tests\e2e\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
