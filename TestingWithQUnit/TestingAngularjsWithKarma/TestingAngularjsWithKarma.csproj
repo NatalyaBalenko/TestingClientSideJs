@@ -76,7 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\app.js" />
-    <Content Include="App\Controllers\CoursesController.js" />
+    <Content Include="App\Controllers\controllers.js" />
     <Content Include="App\css\animations.css" />
     <Content Include="App\css\app.css" />
     <Content Include="App\css\bootstrap-responsive.css" />

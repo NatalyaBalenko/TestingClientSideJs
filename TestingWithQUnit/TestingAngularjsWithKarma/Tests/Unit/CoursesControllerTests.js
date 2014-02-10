@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-describe("CoursesController", function () {
+xdescribe("CoursesController", function () {
     var scope, $controllerConstructor;
 
     beforeEach(module("myApp"));
@@ -14,5 +14,16 @@ describe("CoursesController", function () {
         var ctrl = $controllerConstructor("CoursesController", { $scope: scope });
 
         expect(scope.user).toBe("Abhishek Jain");
+    });
+});
+
+describe("PhoneCat Controllers", function () {
+    beforeEach(module('phonecatApp'));
+    describe("PhoneListCtrl", function () {
+        it('should create "phones" model with 4 phones', inject(function ($controller, $rootScope) {
+            var scope = $rootScope.$new(),
+                ctrl = $controller('PhoneListCtrl', { $scope: scope });
+            expect(scope.phones.length).toBe(4);
+        }));
     });
 });

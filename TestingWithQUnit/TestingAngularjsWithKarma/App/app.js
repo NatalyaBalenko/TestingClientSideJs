@@ -1,1 +1,1 @@
-﻿var app = angular.module("myApp", []);
+﻿var phonecatApp = angular.module("phonecatApp", []);
