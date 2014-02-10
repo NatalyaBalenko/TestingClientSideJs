@@ -10,12 +10,13 @@ module.exports = function (config) {
 
         autoWatch: false,
 
-        browsers: ['Chrome'],
+        browsers: ['Chrome', 'Firefox'],
 
         frameworks: ['ng-scenario'],
 
         singleRun: true,
 
+        // Replace the port with whatever port the app is running on
         proxies: {
             '/': 'http://localhost:65108/'
         },

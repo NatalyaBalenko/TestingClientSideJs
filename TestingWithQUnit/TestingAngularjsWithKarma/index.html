@@ -1,24 +1,28 @@
 ﻿<!doctype html>
-<html lang="en" ng-app="phonecatApp">
+<html lang="en" ng-app="phonecatApp" ng-controller="PhoneListCtrl">
 <head>
     <meta charset="utf-8">
-    <title>My HTML File</title>
+    <title ng-bind-template="Google Phone Gallery {{query && ':' + query}}">Google Phone Gallery</title>
     <link href="App/css/app.css" rel="stylesheet" />
     <link rel="stylesheet" href="App/css/bootstrap.css">
     <script src="Scripts/angular.js"></script>
     <script src="App/app.js"></script>
     <script src="App/Controllers/controllers.js"></script>
 </head>
-<body ng-controller="PhoneListCtrl">
+<body>
     <div class="container-fluid">
         <div class="row-fluid">
             <div class="span2">
                 Search: <input ng-model="query" />
             </div>
+        </div>
+        <hr />
+        <div class="row-fluid">
             <div class="span10">
-                <p>Total number of phones: {{phones.length}}</p>
+                <div id="status">Current filter: {{query}}</div>
+                <p>Total number of phones: {{filtered.length}}</p>
                 <ul class="phones">
-                    <li data-ng-repeat="phone in phones | filter:query">
+                    <li data-ng-repeat="phone in filtered= (phones | filter:query)">
                         <span>{{phone.name}}</span>
                         <p>
                             {{phone.snippet}}
@@ -28,7 +32,7 @@
             </div>
         </div>
     </div>
-    
+
 
 </body>
 </html>
